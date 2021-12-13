@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Cliente
 from .forms import ClienteForm
+from django.http import HttpResponse
 # Create your views here.
 
 class ListaClienteView(ListView):
@@ -23,6 +24,9 @@ class ClienteUpdateView(UpdateView):
 class ClienteDeleteView(DeleteView):
     model = Cliente
     success_url = '/clientes/'
+
+def cliente_view(request):
+    return HttpResponse('Teste de view!')
 
 
 
